@@ -33,6 +33,11 @@ namespace HotelProject.BusinessLAaer.Concrete
             _contactDal.Delete(t);
         }
 
+        public int TGetContactCount()
+        {
+            return _contactDal.GetContactCount();
+        }
+
         public void TInsert(Contact t)
         {
             _contactDal.Insert(t);
