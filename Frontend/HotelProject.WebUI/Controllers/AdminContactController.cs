@@ -21,7 +21,7 @@ namespace HotelProject.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        [AllowAnonymous]
+       
         public async Task<IActionResult> Inbox()
         {
 
@@ -48,12 +48,22 @@ namespace HotelProject.WebUI.Controllers
         }
         public async Task<IActionResult> Sendbox()
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:5001/api/SendMessage");
-            if (responseMessage.IsSuccessStatusCode)
+            var client4 = _httpClientFactory.CreateClient();
+            var responseMessage4 = await client4.GetAsync("https://localhost:5001/api/SendMessage");
+            var client5 = _httpClientFactory.CreateClient();
+            var responseMessage5 = await client5.GetAsync("https://localhost:5001/api/Contact/GetContactCount");
+
+            var client6 = _httpClientFactory.CreateClient();
+            var responseMessage6 = await client6.GetAsync("https://localhost:5001/api/SendMessage/SendMessageCount");
+
+            if (responseMessage4.IsSuccessStatusCode)
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultSendboxDto>>(jsonData);
+                var jsonData4 = await responseMessage4.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultSendboxDto>>(jsonData4);
+                var jsonData5 = await responseMessage5.Content.ReadAsStringAsync();
+                ViewBag.contactCount = jsonData5;
+                var jsonData6 = await responseMessage6.Content.ReadAsStringAsync();
+                ViewBag.sendMessageCount = jsonData6;
                 return View(values);
             }
             return View();

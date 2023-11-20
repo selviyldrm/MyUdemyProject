@@ -1,5 +1,4 @@
 ﻿@model CreateBookingDto
-
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -41,19 +40,19 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="checkin" asp-for="Checkin" placeholder="Giriş Tarihi" data-target="#date3" data-toggle="datetimepicker" />
+                                    <input type="text" class="form-control datetimepicker-input" asp-for="Checkin" id="checkin" placeholder="Giriş Tarihi" data-target="#date3" data-toggle="datetimepicker" />
                                     <label for="checkin">Giriş Tarihi</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating date" id="date4" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" id="checkout" asp-for="Checkout" placeholder="Çıkış Tarihi" data-target="#date4" data-toggle="datetimepicker" />
+                                    <input type="text" class="form-control datetimepicker-input" asp-for="Checkout" id="checkout" placeholder="Çıkış Tarihi" data-target="#date4" data-toggle="datetimepicker" />
                                     <label for="checkout">Çıkış Tarihi</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select" asp-for="AdultCount" id="select1">
+                                    <select class="form-select" id="select1" asp-for="AdultCount">
                                         <option value="1">Yetişkin 1</option>
                                         <option value="2">Yetişkin 2</option>
                                         <option value="3">Yetişkin 3</option>
@@ -63,7 +62,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select" asp-for="ChildCount" id="select2">
+                                    <select class="form-select" id="select2" asp-for="ChildCount">
                                         <option value="1">Çocuk 1</option>
                                         <option value="2">Çocuk 2</option>
                                         <option value="3">Çocuk 3</option>
@@ -73,7 +72,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <select class="form-select" asp-for="RoomCount" id="select3">
+                                    <select class="form-select" id="select3" asp-for="RoomCount">
                                         <option value="1">Oda 1</option>
                                         <option value="2">Oda 2</option>
                                         <option value="3">Oda 3</option>

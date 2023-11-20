@@ -11,5 +11,10 @@ namespace HotelProject.BusinessLAaer.Abstract
     {
         void TBookingStatusChangeApproved(Booking booking);
         void TBookingStatusChangeApproved2(int id);
+        int TBookingCount();
+        List<Booking> TLast6Booking();
+        void TBookingStatusChangeApproved3(int id);
+        void TBookingStatusChangeCancel(int id);
+        void TBookingStatusChangeWait(int id);
     }
 }

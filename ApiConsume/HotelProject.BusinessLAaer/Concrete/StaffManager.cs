@@ -28,9 +28,19 @@ namespace HotelProject.BusinessLAaer.Concrete
             return _staffDal.GetList();
         }
 
+        public List<Staff> TLast4Staff()
+        {
+            return _staffDal.Last4Staff();
+        }
+
         public void TDelete(Staff t)
         {
             _staffDal.Delete(t);
+        }
+
+        public int TGetStaffCount()
+        {
+            return _staffDal.GetStaffCount();
         }
 
         public void TInsert(Staff t)

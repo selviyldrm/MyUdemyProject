@@ -7,14 +7,12 @@
 <form method="post">
     <label>Alıcı Mail Adresi</label>
     <input type="text" class="form-control" asp-for="ReceiverMail" />
-    <br /> 
-    
+    <br />
     <label>Konu</label>
     <input type="text" class="form-control" asp-for="Subject" />
-    <br /> 
-    
-    <label>Mesajınız</label>
-    <textarea class="form-control" rows="6" id="comment" asp-for="Body" />
     <br />
-    <button class="btn btn-primary">Mail Gönder</button>
+    <label>Mesajınız</label>
+    <textarea class="form-control h-150px" rows="6" id="comment" asp-for="Body"></textarea>
+    <br />
+    <button class="btn btn-primary">Maili Gönder</button>
 </form>

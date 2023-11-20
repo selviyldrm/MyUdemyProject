@@ -28,6 +28,11 @@ namespace HotelProject.BusinessLAaer.Concrete
             return _appUserDal.GetList();
         }
 
+        public int TappUserCount()
+        {
+            return _appUserDal.appUserCount();
+        }
+
         public void TDelete(AppUser t)
         {
             _appUserDal.Delete(t);
@@ -46,6 +51,11 @@ namespace HotelProject.BusinessLAaer.Concrete
         public List<AppUser> TUserListWithWorkLocation()
         {
            return _appUserDal.UserListWithWorkLocation();
+        }
+
+        public List<AppUser> TUsersListWithWorkLocations()
+        {
+            return _appUserDal.UsersListWithWorkLocations();
         }
     }
 }

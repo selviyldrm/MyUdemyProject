@@ -17,46 +17,61 @@ namespace HotelProjectWebApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult BookingList()
+        public IActionResult BookingList()
         {
             var values = _bookingService.GetList();
             return Ok(values);
         }
         [HttpPost]
-        public ActionResult AddBooking(Booking booking)
+        public IActionResult AddBooking(Booking booking)
         {
             _bookingService.TInsert(booking);
             return Ok();
         }
         [HttpDelete("{id}")]
-        public ActionResult DeleteBooking(int id)
+        public IActionResult DeleteBooking(int id)
         {
             var values = _bookingService.GetByID(id);
             _bookingService.TDelete(values);
             return Ok();
         }
         [HttpPut("UpdateBooking")]
-        public ActionResult UpdateBooking(Booking booking)
+        public IActionResult UpdateBooking(Booking booking)
         {
             _bookingService.TUpdate(booking);
             return Ok();
         }
         [HttpGet("{id}")]
-        public ActionResult GetBooking(int id)
+        public IActionResult GetBooking(int id)
         {
             var values = _bookingService.GetByID(id);
             return Ok(values);
         }
-        [HttpPut("aaa")]
-        public IActionResult aaa(Booking booking)
+
+        [HttpGet("Last6Booking")]
+        public IActionResult Last6Booking()
         {
-            _bookingService.TBookingStatusChangeApproved(booking);
+            var values = _bookingService.TLast6Booking();
+            return Ok(values);
+        }
+
+        [HttpGet("BookingApproved")]
+        public IActionResult BookingApproved(int id)
+        {
+            _bookingService.TBookingStatusChangeApproved3(id);
             return Ok();
-        } 
-        [HttpPut("bbb")]
-        public IActionResult bbb(int id)
+        }
+
+        [HttpGet("BookingCancel")]
+        public IActionResult BookingCancel(int id)
         {
-            _bookingService.TBookingStatusChangeApproved2(id);
+            _bookingService.TBookingStatusChangeCancel(id);
+            return Ok();
+        }
+        [HttpGet("BookingWait")]
+        public IActionResult BookingWait(int id)
+        {
+            _bookingService.TBookingStatusChangeWait(id);
             return Ok();
         }
     }
